@@ -11,20 +11,24 @@ function Contact() {
 
 function App() {
   const [count, setCount] = useState(0)
+  const [input, setInput]= useState("")
 
-  console.log("re-Rendered")
-
+  useEffect(()=>{
+    console.log("re-Rendered")    
+  },[])
+  useEffect( ()=>{
+    document.title = input
+  },[input])
   const increment = () => {
-    setCount(previousCount =>previousCount + 1)
-    setCount(previousCount =>previousCount + 1)
-    setCount(previousCount =>previousCount + 1)
+    setCount(previousCount => previousCount + 1)
   }
-
+  
   return (
     <div>
       <h1>{count}</h1>
       <Contact></Contact>
-      <button onClick={increment}>Increment Button</button>
+      <button onClick={increment}>Increment Button</button> <br />
+      <input type="text" onChange={(e)=>setInput(e.target.value)} />
     </div>
   )
 }

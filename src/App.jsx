@@ -18,6 +18,7 @@ function App() {
   },[])
   useEffect( ()=>{
     document.title = input
+    console.log("Title updated")
   },[input])
   const increment = () => {
     setCount(previousCount => previousCount + 1)
